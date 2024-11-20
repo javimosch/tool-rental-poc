@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-6">Rent <%= tool.name %></h1>
+    <p class="mb-4 text-gray-600"><%= tool.description %></p>
+    <div class="mb-6">
+        <p class="text-lg font-semibold">Daily Rate: €<%= tool.daily_rate %></p>
+        <p class="text-sm text-gray-600">Platform Commission: €<%= commission %></p>
+    </div>
+    
+    <form action="/rent/<%= tool.id %>" method="POST">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="renter_name">
+                Your Name
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                   type="text" id="renter_name" name="renter_name" required>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="start_date">
+                Start Date
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                   type="date" id="start_date" name="start_date" required>
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="end_date">
+                End Date
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                   type="date" id="end_date" name="end_date" required>
+        </div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"
+                type="submit">
+            Confirm Rental
+        </button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
